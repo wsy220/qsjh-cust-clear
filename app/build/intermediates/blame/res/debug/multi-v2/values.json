@@ -1,0 +1,117 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\qd_code\\qsjh-cust\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "E:\\qd_code\\qsjh-cust\\app\\src\\main\\res\\values\\dcloud_styles.xml",
+                    "from": {
+                        "startLines": "40,39,41,30,35,3,8,16,24",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1938,1874,2003,1486,1702,59,345,734,1151",
+                        "endLines": "40,39,41,33,37,6,14,21,28",
+                        "endColumns": "63,62,48,12,12,12,12,12,12",
+                        "endOffsets": "1997,1932,2047,1694,1866,337,726,1097,1460"
+                    },
+                    "to": {
+                        "startLines": "5,6,7,56,60,74,78,85,91",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "178,242,305,4395,4605,5351,5631,6011,6374",
+                        "endLines": "5,6,7,59,62,77,84,90,95",
+                        "endColumns": "63,62,48,12,12,12,12,12,12",
+                        "endOffsets": "237,300,349,4600,4767,5626,6006,6369,6679"
+                    }
+                },
+                {
+                    "source": "E:\\qd_code\\qsjh-cust\\app\\src\\main\\res\\values\\dcloud_nativeui_styles.xml",
+                    "from": {
+                        "startLines": "3,18",
+                        "startColumns": "4,4",
+                        "startOffsets": "59,991",
+                        "endLines": "16,34",
+                        "endColumns": "12,12",
+                        "endOffsets": "983,2165"
+                    },
+                    "to": {
+                        "startLines": "12,26",
+                        "startColumns": "4,4",
+                        "startOffsets": "1595,2511",
+                        "endLines": "25,42",
+                        "endColumns": "12,12",
+                        "endOffsets": "2506,3669"
+                    }
+                },
+                {
+                    "source": "E:\\qd_code\\qsjh-cust\\app\\src\\main\\res\\values\\dcloud_colors.xml",
+                    "from": {
+                        "startLines": "2,4,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,137,96",
+                        "endColumns": "40,40,40",
+                        "endOffsets": "91,173,132"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,96,137",
+                        "endColumns": "40,40,40",
+                        "endOffsets": "91,132,173"
+                    }
+                },
+                {
+                    "source": "E:\\qd_code\\qsjh-cust\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "17",
+                        "endColumns": "41",
+                        "endOffsets": "54"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1484",
+                        "endColumns": "41",
+                        "endOffsets": "1521"
+                    }
+                },
+                {
+                    "source": "E:\\qd_code\\qsjh-cust\\app\\src\\main\\res\\values\\dcloud_gallery_strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "17",
+                        "endColumns": "68",
+                        "endOffsets": "81"
+                    },
+                    "to": {
+                        "startLines": "11",
+                        "startColumns": "4",
+                        "startOffsets": "1526",
+                        "endColumns": "68",
+                        "endOffsets": "1590"
+                    }
+                },
+                {
+                    "source": "E:\\qd_code\\qsjh-cust\\app\\src\\main\\res\\values\\dcloud_activity_styles.xml",
+                    "from": {
+                        "startLines": "2,12,7,24,18",
+                        "startColumns": "5,5,5,4,4",
+                        "startOffsets": "58,524,279,1096,815",
+                        "endLines": "5,16,10,29,22",
+                        "endColumns": "13,12,12,12,12",
+                        "endOffsets": "266,803,511,1401,1088"
+                    },
+                    "to": {
+                        "startLines": "43,47,52,63,69",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "3674,3883,4162,4772,5077",
+                        "endLines": "46,51,55,68,73",
+                        "endColumns": "13,12,12,12,12",
+                        "endOffsets": "3878,4157,4390,5072,5346"
+                    }
+                }
+            ]
+        }
+    ]
+}

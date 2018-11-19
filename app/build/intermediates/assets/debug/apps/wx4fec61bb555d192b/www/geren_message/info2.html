@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>广告页模板</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" href="../css/main.css" />
+		<style>
+			p {
+				text-indent: 22px;
+				padding: 5px 8px;
+			}
+			
+			html,
+			body,
+			.mui-content {
+				background-color: #fff;
+			}
+			
+			h4 {
+				margin-left: 5px;
+			}
+			
+			.qrcode {
+				/*position: absolute;*/
+				top: 50px;
+				/*left: 50%;*/
+				width: 100%;
+				/*-webkit-transform: translate(-50%, 0);
+				transform: translate(-50%, 0);*/
+				text-align: center;
+			}
+			
+			.qrcode img {
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<div class="mui-card-content">
+					<p v-html="content">
+					</p>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/xiangyingshi.js"></script>
+		<script type="text/javascript" src="../js/constants.js"></script>
+		<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+
+		<script type="text/javascript" src="../js/vue/vue.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init({
+				keyEventBind: {
+					backbutton: true //打开back按键监听
+				},
+				beforeback: function() {
+					//返回true，继续页面关闭逻辑  
+					mui.back;
+					return true;
+				}
+			});
+
+			function getDefaultData() {
+				return {
+					content: ''
+				}
+			}
+			var vm = new Vue({
+				el: '.mui-card-content',
+				data: getDefaultData(),
+				methods: {
+					resetData: function() { //重置数据
+						Object.assign(this.$data, getDefaultData());
+					}
+				}
+			});
+
+			mui.plusReady(function() {
+
+				// 加载完毕后关闭等待框，并展示页面
+				var currentView = plus.webview.currentWebview();
+				currentView.show('slide-in-right', 200);
+				plus.nativeUI.closeWaiting();
+				var self = plus.webview.currentWebview();
+				acount = self.dataurlWebview;
+				var url = serverAddress + "/api/baseinfo/appgetbaseinfo";
+				var sussess = function(data) {
+					console.log("任意页面详情" + JSON.stringify(data));
+					if(data.result == "success") {
+						vm.content = data.data.content;
+					}
+
+				};
+				commonHttpUtils(url, "post", {
+					id: currentView.dataurlWebview
+				}, sussess, error, false);
+
+			});
+
+//			{
+//				"result": "success",
+//				"data": {
+//					"_id": "5b0dff73cbac9f0d5c808115",
+//					"title": "关于我们",
+//					"content": "<p>70佳护是长春柒拾佳护健康管理有限公司推出的中国首个护士上门服务平台，是政府批准的全国互联网医养服务试点项目。通过医护到家APP，可以随时随地预约护士上门服务、居家养老、问诊、体检、健康管理等服务。医护到家目前已覆盖北、上、广、深等330个城市，注册认证的专业执业护士超过4.3万名。医护到家将不断拓展新的业务领域，包括在全国范围投资建立护理站、打造智慧物联网以及在养老护理和康复领域的新服务。</p>\n"
+//				}
+//			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+		<link rel="stylesheet" href="../css/jquery-labelauty.css" />
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=x8wP7ck7pQ4P8UAol2pen8B5"></script>
+		<title>服务对象增加</title>
+		<style>
+			input,
+			textarea {
+				font-size: 0.3rem;
+			}
+			
+			.mui-content {
+				background: #FFFFFF;
+			}
+			
+			.xingbie a {
+				color: #000000;
+			}
+			
+			.tableUL {
+				margin-top: 0.08rem;
+			}
+			
+			.mui-col-xs-3 {
+				width: 21%;
+			}
+			
+			@media screen and (min-width: 320px) {
+				.mui-col-xs-3 {
+					width: 21%;
+				}
+			}
+			
+			@media screen and (min-width: 400px) {
+				.mui-col-xs-3 {
+					width: 21%;
+				}
+			}
+			
+			.libutton {
+				padding-top: 0;
+			}
+			
+			.mui-btn {
+				padding: 6px 6px !important;
+				margin: 6px 0px;
+			}
+			
+			.mui-table-view-cell {
+				padding: 0px 0px;
+			}
+			
+			ul {
+				list-style-type: none;
+			}
+			
+			li {
+				display: inline-block;
+				margin: 5px 0;
+				width: 22%;
+				float: left;
+				border: 1px solid #d9d9d9;
+				margin-right: 7px;
+				border-radius: 8px;
+			}
+			
+			.mui-table-view-cell.mui-active {
+				background-color: #FFFFFF;
+			}
+			
+			.xingbie {
+				font-size: 14px;
+				!important margin-left: 20px;
+				margin-top: 10px;
+				padding-bottom: 10px;
+				border-bottom: 1px solid #e3e3e3;
+			}
+			
+			.guanxi {
+				margin-top: 25px;
+			}
+			
+			.mui-table-view:before {
+				height: 0px;
+			}
+			
+			.font-bold {
+				font-size: 0.25rem;
+			}
+			
+			.font-bold1 {
+				font-size: 0.25rem;
+				padding-left: 0px;
+			}
+			
+			.guanxi h5 {
+				font-weight: bold;
+				font-size: 0.3rem;
+				color: #000000;
+			}
+			
+			.dibu {
+				padding-bottom: 10px;
+				padding-top: 100px;
+				margin: 0;
+			}
+			
+			.dibuButton {
+				background-color: rgba(215, 215, 215, 1);
+				border-radius: 10px;
+			}
+			
+			.mui-table-view-cell:after,
+			.mui-table-view:after {
+				height: 0;
+			}
+			
+			.mui-input-row label {
+				font-size: 0.25rem;
+				width: 30%;
+				padding: 11px 0px;
+				font-weight: inherit;
+				color: #333333;
+			}
+			
+			.mui-input-row label~input {
+				/*border-bottom: 1px solid #E3E3E3;*/
+				width: 70%;
+				height: 35px;
+				font-size: 14px;
+				padding-left: 8px;
+			}
+			
+			.mui-input-row {
+				margin-bottom: 10px;
+				border-bottom: 1px solid #e3e3e3;
+			}
+			
+			.mui-btn-block {
+				padding: 0;
+			}
+			
+			textarea {
+				border: 1px solid #E3E3E3;
+			}
+			
+			.shurukuang {
+				font-size: 14px;
+				color: #333333;
+				height: 120px;
+			}
+			
+			input[type=color],
+			input[type=date],
+			input[type=datetime-local],
+			input[type=datetime],
+			input[type=email],
+			input[type=month],
+			input[type=number],
+			input[type=password],
+			input[type=search],
+			input[type=tel],
+			input[type=text],
+			input[type=time],
+			input[type=url],
+			input[type=week],
+			select,
+			textarea {
+				line-height: 21px;
+				width: 100%;
+				height: 40px;
+				margin-bottom: 5px;
+				padding: 10px 15px;
+				-webkit-user-select: text;
+				border: 1px solid #E3E3E3;
+				border-radius: 3px;
+				outline: 0;
+				background-color: #fff;
+				-webkit-appearance: none;
+			}
+			
+			.mui-content-padded {
+				/*margin: 10px;*/
+			}
+			
+			.icon-bitian:before {
+				content: "\e607";
+				color: #CF2D28;
+			}
+			
+			.mui-icon {
+				font-weight: 800;
+			}
+			
+			.iconfont {
+				font-family: "iconfont" !important;
+				font-size: 16px;
+				font-style: normal;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+			
+			input.labelauty+label {
+				border-radius: 5px;
+				text-align: center;
+				padding: 5px;
+			}
+			
+			.mui-control-content {
+				height: 350px;
+				height: 90vh;
+				display: block;
+			}
+			
+			body,
+			html {
+				overflow: hidden;
+				height: 100%;
+			}
+			
+			.mui-scroll-wrapper {
+				position: absolute;
+				z-index: 0;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				overflow: hidden;
+				width: 100%;
+			}
+			
+			.icon-bitian {
+				font-size: 8px;
+				color: #CF2D28;
+				padding-right: 10px;
+			}
+			
+			.imgL {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			.xingbiedanxuan {
+				margin-left: 45px;
+			}
+			
+			.Sync-to-file {
+				margin-left: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">添加服务对象</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-control-content">
+				<div class="mui-scroll-wrapper" id="scroll">
+					<div class="mui-scroll">
+						<div class="mui-content-padded">
+							<div class="mui-input-row">
+								<label class="font-bold"><span class="mui-icon iconfont icon-bitian"></span>姓名：</label>
+								<input type="text" class="mui-input shurukuang" data-input-password="3" placeholder="请输入姓名" id="name">
+							</div>
+							<div class="mui-input-row">
+								<label class="font-bold"><span class="mui-icon iconfont icon-bitian"></span>身份证号：</label>
+								<input type="text" class="mui-input shurukuang" data-input-password="3" placeholder="请输入身份证号" id="shenfencard" onKeyUp="value=value.replace(/\D/g,'')" onafterpaste="value=value.replace(/\D/g,'')">
+							</div>
+							<!--<div class="mui-input-row">
+								<label class="font-bold"><span class="mui-icon iconfont icon-bitian"></span>年龄：</label>
+								<input type="text" class="mui-input shurukuang" data-input-password="3" placeholder="请输入年龄" id="age" onKeyUp="value=value.replace(/\D/g,'')" onafterpaste="value=value.replace(/\D/g,'')">
+							</div>-->
+							<div class="mui-input-row">
+								<label class="font-bold"><span class="mui-icon iconfont icon-bitian"></span>电话：</label>
+								<input type="text" class="mui-input shurukuang" data-input-password="3" placeholder="请输入联系电话" id="phone" maxlength="11" onKeyUp="value=value.replace(/\D/g,'')" onafterpaste="value=value.replace(/\D/g,'')">
+							</div>
+							<div class="mui-input-row ">
+								<div id="l-map"></div>
+								<label class="font-bold"><span class="mui-icon iconfont icon-bitian"></span>地址：</label>
+								<input type="text" placeholder="请输入上门详细地址" id="xiangxiaddress" class="shurukuang">
+							</div>
+							<div class="xingbie ">
+								<a>
+									<span class="font-bold"><span class="mui-icon iconfont icon-bitian"></span>性别：</span>
+									<span class="xingbiedanxuan">
+										<label class="xuanze">男</label>
+										<input id="leixingradio" name="leixingradio" type="radio" value="0" checked="checked">
+										
+										<label class="xuanze">女</label>
+										<input id="leixingradio" name="leixingradio" type="radio" value="1">
+									</span>
+								</a>
+							</div>
+							<div class="guanxi">
+								<div class="font-bold"><span class="mui-icon iconfont icon-bitian"></span>与他的关系：</div>
+								<ul class="dowebok" id="dowebok">
+									<li><input type="radio" name="radio1" data-labelauty="父子" value="父子" class="labelauty" id="labelauty" style="display: none;" checked="checked"><label for="labelauty"><span class="labelauty-unchecked">父子</span><span class="labelauty-checked">父子</span></label></li>
+									<li><input type="radio" name="radio1" data-labelauty="母子" value="母子" class="labelauty" id="labelauty"><label for="labelauty"><span class="labelauty-unchecked">母子</span><span class="labelauty-checked">母子</span></label></li>
+									<li><input type="radio" name="radio1" data-labelauty="亲友" value="亲友" class="labelauty" id="labelauty"><label for="labelauty"><span class="labelauty-unchecked">亲友</span><span class="labelauty-checked">亲友</span></label></li>
+									<!--<li><input type="radio" name="radio1" data-labelauty="孩子" value="孩子" class="labelauty" id="labelauty"><label for="labelauty"><span class="labelauty-unchecked">孩子</span><span class="labelauty-checked">孩子</span></label></li>
+									<li><input type="radio" name="radio1" data-labelauty="亲戚" value="亲戚" class="labelauty" id="labelauty"><label for="labelauty"><span class="labelauty-unchecked">亲戚</span><span class="labelauty-checked">亲戚</span></label></li>
+									<li><input type="radio" name="radio1" data-labelauty="朋友" value="朋友" class="labelauty" id="labelauty"><label for="labelauty"><span class="labelauty-unchecked">朋友</span><span class="labelauty-checked">朋友</span></label></li>
+									<li><input type="radio" name="radio1" data-labelauty="其他" value="其他" class="labelauty" id="labelauty"><label for="labelauty"><span class="labelauty-unchecked">其他</span><span class="labelauty-checked">其他</span></label></li>-->
+								</ul>
+							</div>
+
+							<!--<div class="dibuliebiao">
+								<div class="mui-input-row textareaInput">
+									<div class="font-bold1">疾病情况：</div>
+									<textarea rows="5" placeholder="请输入就诊情况" id="jiuzhen_content" class="shurukuang"></textarea>
+								</div>
+								<div class="mui-input-row">
+									<label>就诊时间：</label>
+									<input type="text" id="jiuzhen_time" placeholder="请输入就诊时间" onKeyUp="value=value.replace(/\D/g,'')" onafterpaste="value=value.replace(/\D/g,'')">
+								</div>
+								<div class="mui-input-row">
+									<label>就诊医院：</label>
+									<input type="text" id="jiuzhen_hospital" placeholder="请输入医院名称">
+								</div>
+								<div class="mui-input-row">
+									<label>就诊科室：</label>
+									<input type="text" id="jiuzhen_keshi" placeholder=" 请输入科室名称">
+								</div>
+								<div class="mui-input-row">
+									<label>诊断疾病：</label>
+									<input type="text" id="jiuzhen_illness" placeholder="请输入诊断疾病">
+								</div>
+								<div class="mui-input-row">
+									<label>主治医师：</label>
+									<input type="text" id="jiuzhen_num" placeholder=" 请输入医生姓名或医生的佳护号码">
+								</div>
+							</div>-->
+
+							<div class="mui-content-padded dibu">
+								<button id='save' class="mui-btn mui-btn-block mui-btn-warning">保存</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/constants.js"></script>
+		<script type="text/javascript" src="../js/xiangyingshi.js"></script>
+		<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="../js/jquery-labelauty.js"></script>
+		<script type="text/javascript" src="../js/IScard.js"></script>
+		<script type="text/javascript" src="../js/qs/qs.immersed.js"></script>
+		<script>
+			var JSONMESSAGE = {};
+			var JSOMMESSAGEARRAY = [];
+			var html = '';
+			var longitude = '',
+				latitude = '';
+			var leibie = 0;
+			mui.init({
+				keyEventBind: {
+					backbutton: true //打开back按键监听
+				},
+				beforeback: function() {
+					//返回true，继续页面关闭逻辑  
+					mui.back;
+					return true;
+				},
+				swipeBack: true //启用右滑关闭功能
+			});
+			mui('#scroll').scroll({
+				indicators: true //是否显示滚动条
+			});
+			mui.plusReady(function() {
+				if(mui.os.ios || mui.os.ipad || mui.os.iphone) {
+					plus.webview.currentWebview().setStyle({
+						softinputMode: "adjustResize" // 弹出软键盘时自动改变webview的高度
+					});
+				}
+				//				if(plus.navigator.isImmersedStatusbar()) { // 兼容immersed状态栏模式
+				//					// 获取状态栏高度并根据业务需求处理，这里重新计算了子窗口的偏移位置
+				//					topoffset = (Math.round(plus.navigator.getStatusbarHeight()) + 45) + 'px';
+				//					document.querySelector("header").style.height = topoffset;
+				//					document.querySelector("header").style.paddingTop = "20px";
+				//					document.querySelector(".mui-bar-nav~.mui-content").style.paddingTop = topoffset;
+				//				}
+
+				// 加载完毕后关闭等待框，并展示页面
+				var currentView = plus.webview.currentWebview();
+				currentView.show('slide-in-right', 200);
+				plus.nativeUI.closeWaiting();
+
+				function G(id) {
+					return document.getElementById(id);
+				}
+
+				var map = new BMap.Map("l-map");
+				map.centerAndZoom("长春", 12); // 初始化地图,设置城市和地图级别。
+
+				var ac = new BMap.Autocomplete( //建立一个自动完成的对象
+					{
+						"input": "xiangxiaddress",
+						"location": map
+					});
+
+				ac.addEventListener("onhighlight", function(e) { //鼠标放在下拉列表上的事件
+					var str = "";
+					var _value = e.fromitem.value;
+					var value = "";
+					if(e.fromitem.index > -1) {
+						value = _value.province + _value.city + _value.district + _value.street + _value.business;
+					}
+					str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+					console.log("up" + value);
+					value = "";
+					if(e.toitem.index > -1) {
+						_value = e.toitem.value;
+						value = _value.province + _value.city + _value.district + _value.street + _value.business;
+					}
+					console.log("down" + value);
+					str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+
+					//G("searchResultPanel_begin").innerHTML = str;
+				});
+
+				var myValue = "";
+
+				ac.addEventListener("onconfirm", function(e) { //鼠标点击下拉列表后的事件
+					myValue = '';
+					var _value = e.item.value;
+					myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+					localStorage.selectedAddress = myValue;
+
+					document.getElementById("xiangxiaddress").value = myValue;
+					//G("searchResultPanel_begin").innerHTML = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+					localStorage.myvalue = myValue;
+					//setCookie("myvalue", myValue);
+					if(myValue != "") {
+						setPlace(myValue);
+						console.log('over');
+					}
+				});
+
+				function setPlace(myValue) {
+					console.log('setPlace start.');
+					map.clearOverlays(); //清除地图上所有覆盖物
+					//经度
+
+					var local = new BMap.LocalSearch(map, { //智能搜索
+						onSearchComplete: function() {
+							console.log('onSearchComplete start.');
+							var pp = local.getResults().getPoi(0).point; //获取第一个智能搜索的结果
+							longitude = pp.lng;
+							latitude = pp.lat;
+							console.log("经度" + longitude);
+							console.log("纬度" + latitude);
+							if(longitude == "" || latitude == "") {
+								mui.toast("请选择正确地址");
+								return false;
+							}
+
+						}
+					});
+					local.search(myValue);
+				}
+			});
+
+			mui(".mui-content").on("tap", "#save", function(e) {
+				var name = decodeURI($("#name").val());
+				var shenfencard = $("#shenfencard").val();
+				//var leibie = ($("input[id='leixingradio']:checked").val()) == 0 ? '男' : '女';
+				var leibie = $("input[id='leixingradio']:checked").val();
+				var SyncToFile = "yes";
+				var relationship = $("input[name='radio1']:checked").val();
+				var phone = $("#phone").val();
+				//var age = $("#age").val();
+
+				if(shenfencard == null || isCardID(shenfencard) != true) {
+					mui.toast("身份证号码错误");
+					return false;
+				}
+				var now = new Date();
+				//获取年龄
+				var age = parseInt(now.getFullYear()) - parseInt(GetAge(shenfencard));
+				var xiangxiaddress = $("#xiangxiaddress").val();
+				var account = localStorage.getItem("TOKEN");
+				//				var jiuzhen_content = $("#jiuzhen_content").val();
+				//				var jiuzhen_time = $("#jiuzhen_time").val();
+				//				var jiuzhen_hospital = $("#jiuzhen_hospital").val();
+				//				var jiuzhen_illness = $("#jiuzhen_illness").val();
+				//				var jiuzhen_num = $("#jiuzhen_num").val();
+				//				var jiuzhen_keshi = $("#jiuzhen_keshi").val();
+				//将字符串转时间类型
+				//				var arr1 = jiuzhen_time.split("-");
+				//				var date1 = new Date(arr1[0], parseInt(arr1[1]) - 1, arr1[2]);
+				var phone_validate = /1[3|5|7|8|9|]\d{9}/; //验证手机号码是否正确
+				if(!phone_validate.test(phone)) {
+					mui.toast('手机号码错误');
+					return false;
+				}
+
+				if(xiangxiaddress == "" || longitude == "" || latitude == "" || longitude == undefined || latitude == undefined) {
+					mui.toast("请选择正确地址");
+					return false;
+				}
+				var userid = localStorage.getItem("TOKENID");
+				//编辑服务对象
+				var url = serverAddress + "/api/patient/appcreateobject";
+				var messageInfo = {
+					account: account,
+					realname: name,
+					gender: leibie,
+					isarchives: SyncToFile,
+					tel: phone,
+					relations: relationship,
+					idnumber: shenfencard,
+					homeaddress: xiangxiaddress,
+					//					case_information: jiuzhen_content,
+					//					visit_time: jiuzhen_time,
+					//					visit_hospital: jiuzhen_hospital,
+					//					hos_department: jiuzhen_keshi,
+					//					physician: jiuzhen_num,
+					//					diagnosis: jiuzhen_illness,
+					age: age,
+					userid: userid,
+					ordergpslng: longitude,
+					ordergpslat: latitude
+				};
+
+				var sussess = function(data) {
+					console.log("tianjia------------》" + JSON.stringify(data));
+					if(data.result == "success") {
+						mui.toast("创建成功");
+						mui.back();
+						var list = plus.webview.currentWebview().opener();
+						//触发列表界面的自定义事件（refresh）,从而进行数据刷新  
+						list.reload(true);
+					}else{
+						mui.toast(data.msg);
+					}
+				};
+				commonHttpUtils(url, "post", messageInfo, sussess, error, true);
+			})
+
+		</script>
+	</body>
+
+</html>
